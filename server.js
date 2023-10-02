@@ -16,9 +16,12 @@ const server = http.createServer((req, res) => {
     if (reqBody) {
       req.body = reqBody
         .split("&")
-        .map((keyValuePair) => keyValuePair.split("="))
-        .map(([key, value]) => [key, value.replace(/\+/g, " ")])
-        .map(([key, value]) => [key, decodeURIComponent(value)])
+        .map((keyValuePair) =>
+keyValuePair.split("="))
+        .map(([key, value]) =>[key, 
+value.replace(/\+/g, " ")])
+        .map(([key, value]) => [key,
+decodeURIComponent(value)])
         .reduce((acc, [key, value]) => {
           acc[key] = value;
           return acc;
